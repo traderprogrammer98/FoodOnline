@@ -39,8 +39,8 @@ class UserManager(BaseUserManager):
 
 
 class RolesEnum(Enum):
-    RESTAURANT = 1, 'Restaurant'
-    Customer = 2, 'Customer'
+    VENDOR = 1, 'Vendor'
+    CUSTOMER = 2, 'Customer'
 
     @classmethod
     def choices(cls):
