@@ -7,9 +7,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                     <div class="user-dashboard loader-holder">
                         <div class="user-holder">
-                            <h4 class="text-center" style="margin-bottom: 0;">WELCOME TO FOODONLINE</h4>
-                            <p class="text-center">Please fill this form to get yourself onboarded in the foodOnline
-                                marketplace.</p>
+                            <h4 class="text-center" style="margin-bottom: 0;">Sign In</h4>
+                            <p class="text-center">Order foods from your favourite restaurants</p>
                             <hr>
                             <div id="restaurant-sets-holder">
                                 <form class="form-fields-set foodbakery-dev-restaurant-form" method="post">
@@ -19,43 +18,33 @@
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="row">
-                                                        <ul>
+                                                        <ul class="w-100">
                                                             <li>
-                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                     <div class="field-holder">
-                                                                        <label>First Name</label>{{ form.first_name }}
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                                    <div class="field-holder">
-                                                                        <label>Last name</label>{{ form.last_name }}
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                                    <div class="field-holder">
-                                                                        <label>Email Address</label>{{ form.email }}
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                                    <div class="field-holder">
-                                                                        <label>Username</label>{{ form.username }}
+                                                                        <label>Email</label>{{ form.email }}
                                                                     </div>
                                                                 </div>
                                                             </li>
                                                             <li>
-                                                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                     <div class="field-holder">
-                                                                        <label>Password</label>
-                                                                        {{ form.password }}
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                                    <div class="field-holder">
-                                                                        <label>Confirm Password</label>
-                                                                        {{ form.confirm_password }}
+                                                                        <label>Password</label>{{ form.password }}
                                                                     </div>
                                                                 </div>
                                                             </li>
+                                                            {#                                                            <li>#}
+                                                            {#                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">#}
+                                                            {#                                                                    <div class="field-holder">#}
+                                                            {#                                                                        <label>Email</label>{{ form.email }}#}
+                                                            {#                                                                    </div>#}
+                                                            {#                                                                </div>#}
+                                                            {#                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">#}
+                                                            {#                                                                    <div class="field-holder">#}
+                                                            {#                                                                        <label>Password</label>{{ form.password }}#}
+                                                            {#                                                                    </div>#}
+                                                            {#                                                                </div>#}
+                                                            {#                                                            </li>#}
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -68,9 +57,6 @@
                                                         {% for error in field.errors %}
                                                             <li style="color: red">{{ error }}</li>
                                                         {% endfor %}
-                                                    {% endfor %}
-                                                    {% for error in form.non_field_errors %}
-                                                        <li style="color: red">{{ error }}</li>
                                                     {% endfor %}
                                                 </ul>
                                             {% endif %}

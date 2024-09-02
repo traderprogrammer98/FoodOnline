@@ -9,10 +9,16 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password', 'first_name', 'last_name', 'phone_number')
+        fields = ('username', 'email', 'first_name', 'last_name', 'phone_number')
 
-    def clean_password(self):
+    def clean(self):
         password = self.cleaned_data.get('password')
         confirm_password = self.cleaned_data.get('confirm_password')
         if password != confirm_password:
-            raise forms.ValidationError('Passwords must match')
+            raise forms.ValidationError('Passwords don\'t match')
+        return self.cleaned_data
+
+
+class LoginForm(forms.Form):
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput)

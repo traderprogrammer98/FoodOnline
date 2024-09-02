@@ -38,22 +38,17 @@ class UserManager(BaseUserManager):
         return user
 
 
-class RolesEnum(Enum):
-    VENDOR = 1, 'Vendor'
-    CUSTOMER = 2, 'Customer'
-
-    @classmethod
-    def choices(cls):
-        return [(e.value[0], e.value[1]) for e in cls]
-
-
 class User(AbstractUser):
+    class Role(models.TextChoices):
+        VENDOR = '1', 'Vendor'
+        CUSTOMER = '2', 'Customer'
+
     first_name = models.CharField('First Name', max_length=50)
     last_name = models.CharField('Last Name', max_length=50)
     username = models.CharField(max_length=50, unique=True)
     email = models.EmailField('Email Address', max_length=100, unique=True)
     phone_number = models.CharField('Phone Number', max_length=12, blank=True, null=True)
-    role = models.PositiveSmallIntegerField(choices=RolesEnum.choices(), blank=True, null=True)
+    role = models.CharField(choices=Role.choices, default=Role.CUSTOMER, blank=True, null=True)
     date_joined = models.DateTimeField('Date Joined', auto_now_add=True)
     last_login = models.DateTimeField('Last Login', auto_now_add=True)
     create_date = models.DateTimeField(auto_now_add=True)

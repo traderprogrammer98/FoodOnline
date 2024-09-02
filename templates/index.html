@@ -62,6 +62,9 @@
 												<input class="foodbakery-bgcolor" type="submit" value="Search">
 											</div>
 										</div>
+                                        {% if messages %}
+                                        	{% include 'includes/alerts.html' %}
+                                        {% endif %} 
 									</div>
 								</form>
 							</div>
