@@ -18,7 +18,6 @@ from django.contrib.messages import constants as messages
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -29,7 +28,6 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -75,7 +73,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'FoodOnline.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -83,10 +80,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config("DB_NAME"),  # The name of your PostgreSQL database
-        'USER': config("DB_USER"),       # Your PostgreSQL username
+        'USER': config("DB_USER"),  # Your PostgreSQL username
         'PASSWORD': config("DB_PASSWORD"),  # Your PostgreSQL user's password
-        'HOST': '',    # Set to empty string for localhost
-        'PORT': '5432',         # Set to empty string for default
+        'HOST': '',  # Set to empty string for localhost
+        'PORT': '5432',  # Set to empty string for default
     }
 }
 AUTH_USER_MODEL = 'accounts.User'
@@ -109,7 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     # },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -120,7 +116,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -143,3 +138,10 @@ MESSAGE_TAGS = {
     messages.WARNING: 'warning',
     messages.INFO: 'info'
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config("EMAIL_HOST")
+EMAIL_PORT = config("EMAIL_PORT", cast=int)
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_USE_TLS = config("EMAIL_USE_TLS", cast=bool)
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
